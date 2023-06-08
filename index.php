@@ -1,5 +1,4 @@
 <?php require_once "config.php"; 
-print_r(get_client_ip());die;
 ?>
 <!DOCTYPE html>
 <html>
@@ -118,6 +117,7 @@ print_r(get_client_ip());die;
                         Download Windows 10
                     </div>
                     <?php
+                        print_r("IP ADDRESS:-------" .get_client_ip());die;
 
 						if(isset($resp) && $resp == false) {
 							echo '<p class="error">Vui lòng xác nhận Captcha</p>';
@@ -149,17 +149,18 @@ print_r(get_client_ip());die;
 <?php
 function get_client_ip() {
     $ipaddress = '';
-    if (isset($_SERVER['HTTP_CLIENT_IP']))
-        $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
-    else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
-    else if(isset($_SERVER['HTTP_X_FORWARDED']))
-        $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
-    else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
-        $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
-    else if(isset($_SERVER['HTTP_FORWARDED']))
-        $ipaddress = $_SERVER['HTTP_FORWARDED'];
-    else if(isset($_SERVER['REMOTE_ADDR']))
+    // if (isset($_SERVER['HTTP_CLIENT_IP']))
+    //     $ipaddress = $_SERVER['HTTP_CLIENT_IP'];
+    // else if(isset($_SERVER['HTTP_X_FORWARDED_FOR']))
+    //     $ipaddress = $_SERVER['HTTP_X_FORWARDED_FOR'];
+    // else if(isset($_SERVER['HTTP_X_FORWARDED']))
+    //     $ipaddress = $_SERVER['HTTP_X_FORWARDED'];
+    // else if(isset($_SERVER['HTTP_FORWARDED_FOR']))
+    //     $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
+    // else if(isset($_SERVER['HTTP_FORWARDED']))
+    //     $ipaddress = $_SERVER['HTTP_FORWARDED'];
+    // else 
+    if(isset($_SERVER['REMOTE_ADDR']))
         $ipaddress = $_SERVER['REMOTE_ADDR'];
     else
         $ipaddress = 'UNKNOWN';
