@@ -1,4 +1,12 @@
-<?php require_once "config.php"; 
+<?php require_once "config.php";
+
+  if(!isset($_COOKIE["ii_ssr"])) {
+    $message = "Rất vui được gặp bạn";
+    setcookie("ii_ssr", get_client_ip(), time() + (86400 * 30), "/"); // 86400 = 1 day
+
+} else {
+    $message = "Chào mừng bạn quay trở lại";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,7 +16,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title></title>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <link rel="stylesheet" type="text/css" href="http://<?=site_url?>/styles.css?v=2.0.3">
+    <link rel="stylesheet" type="text/css" href="<?=site_url?>/styles.css?v=2.0.3">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <?php $w = isset($_GET['w']) && $_GET['w'] ? $_GET['w'] : '' ?>
     <?php
@@ -117,7 +125,7 @@
                         Download Windows 10
                     </div>
                     <?php
-                        print_r("IP ADDRESS:-------" .get_client_ip());die;
+                        echo $message;die;
 
 						if(isset($resp) && $resp == false) {
 							echo '<p class="error">Vui lòng xác nhận Captcha</p>';
@@ -159,12 +167,13 @@ function get_client_ip() {
         $ipaddress = $_SERVER['HTTP_FORWARDED_FOR'];
     else if(isset($_SERVER['HTTP_FORWARDED']))
         $ipaddress = $_SERVER['HTTP_FORWARDED'];
-    else 
-    if(isset($_SERVER['REMOTE_ADDR']))
+    else if(isset($_SERVER['REMOTE_ADDR']))
         $ipaddress = $_SERVER['REMOTE_ADDR'];
     else
         $ipaddress = 'UNKNOWN';
-    $ip = file_get_contents('https://api.ipify.org');
+    
+    $ipaddress = $_SERVER['REMOTE_ADDR'];
 
-    return $ip;
+   
+    return $ipaddress;
 }
