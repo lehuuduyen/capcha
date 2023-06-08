@@ -1,0 +1,142 @@
+		.btn_v01code {
+			font-size: 16px;
+			background-color: green;
+			color: white;
+			border-radius: 3px;
+			padding: 5px 10px 5px 10px;
+			float: left;
+			border: 2px solid #fff;
+			font-weight: 700;
+		}
+
+		.btn_v01code a {
+			width: 100%;
+			float: left;
+			height: 100%;
+			background: #0b9be4;
+
+		}
+
+		.btn_v01code a:hover {
+			background: #0b9be4;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.btn_v01code a:active {
+			background: #0b9be4;
+			color: #fff;
+			text-decoration: none;
+		}
+
+		.btn {
+			display: none;
+			background: #fff;
+			color: #3b5998;
+			border: 1px solid #3b5998;
+			border-radius: 5px;
+			padding: 1px;
+			margin-top: 5px;
+			position: absolute;
+			right: 5px;
+			cursor: pointer;
+		}
+
+		.error {
+			padding: 5px 10px;
+			border: 1px solid red;
+			border-radius: 5px;
+			color: red;
+			max-width: 280px;
+		}
+
+		.captcha {
+			display: block;
+			box-sizing: border-box;
+			padding: 5px 10px;
+			font-weight: 700;
+			border: 1px solid green;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+
+
+
+		.rdnote {
+			color: Red;
+			margin-bottom: 10px;
+		}
+
+		.xdes {
+			margin-top: 20px;
+			color: #808080;
+			font-size: 11px;
+			margin-bottom: 15px;
+		}
+
+		.ads1,
+		.ads2 {
+			width: 355px;
+			display: inline-block;
+		}
+
+		.ads0 {
+			max-width: 800px;
+			max-height: 100px;
+			margin: auto;
+			margin-top: 10px;
+		}
+
+		.finfo {
+			box-shadow: 0 0 12px #aaa;
+			padding: 15px 30px;
+		}
+
+		.uads {
+			margin-top: 25px;
+		}
+
+		#showtime {
+			font-size: 18px;
+			height: 24px;
+		}
+
+		#linkcontent {
+			font-size: 18px;
+			margin-bottom: 10px;
+			margin-top: 5px;
+
+		}
+
+		.logoA {
+			background: #3da4c8;
+			padding: 2px 0 1px;
+		}
+
+		.tits {
+			color: #70bd1d;
+			font-weight: 700;
+			margin: 15px 0;
+			font-size: 24px;
+		}
+
+		.thm .logo {
+			margin: auto;
+			display: block;
+			width: 205px;
+			/* background: url(https://taimienphi.vn/images/logo_white.png) no-repeat; */
+
+			height: 47px;
+			color: white;
+		
+			/* text-indent: -9999px; */
+		}
+
+		.th {
+			height: 80px;
+		}
+
+		.thm .logo {
+			top: 10px;
+
+		}
