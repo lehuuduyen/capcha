@@ -76,7 +76,7 @@
 		<a href="#" style="display: none;" id="ahref" target="_blank" class="btn_v01code"></a>
 		<script type="text/javascript">
 			$(document).ready(function() {
-				var seconds = <?php echo rand(1, 1); ?>;
+				var seconds = <?php echo rand(20, 30); ?>;
 				active = 1;
 				$(document).on('visibilitychange', function() {
 					if (document.visibilityState === 'visible') {
