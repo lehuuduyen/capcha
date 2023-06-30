@@ -10,7 +10,7 @@ header('Content-Type: application/json');
     $local_storage = isset($_POST['local_storage']) ? $_POST['local_storage'] : null;
 	$site = array();
 $token = token;
-$url = 'https://'.site_ping.'/rest/connect?ip='.get_client_ip().'&token='.$token.'&local_storage='.$local_storage.'&http_referer='.$v;
+$url = site_ping.'/rest/connect?ip='.get_client_ip().'&token='.$token.'&local_storage='.$local_storage.'&http_referer='.$v;
 $get = file_get_contents($url);
 $json = json_decode($get);
 $array = array();

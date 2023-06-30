@@ -54,10 +54,8 @@ class ReCaptcha
 	 * Constructor.
 	 * @param string $secret shared secret between site and ReCAPTCHA server.
 	 */
-	function __construct( $secret )
+	function ReCaptcha( $secret )
 	{
-
-
 		if ( $secret == null || $secret == "" )
 		{
 			die( "To use reCAPTCHA you must get an API key from <a href='"
@@ -73,12 +71,13 @@ class ReCaptcha
 	 */
 	private function _encodeQS( $data )
 	{
-
-		
 		$req = "";
 		foreach ( $data as $key => $value )
 		{
-			$req .= $key . '=' . urlencode( stripslashes( $value ) ) . '&';
+			if($value!=""){
+				$req .= $key . '=' . urlencode( stripslashes( $value ) ) . '&';
+
+			}
 		}
 
 		// Cut the last '&'
@@ -95,7 +94,6 @@ class ReCaptcha
 	 */
 	private function _submitHTTPGet( $path, $data )
 	{
-		
 		$req      = $this->_encodeQS( $data );
 		$response = file_get_contents( $path . $req );
 
@@ -109,9 +107,8 @@ class ReCaptcha
 	 * @param string $response response string from recaptcha verification.
 	 * @return ReCaptchaResponse
 	 */
-	public function verifyResponse( $remoteIp, $response )
+	public function verifyResponse( $secret,$remoteIp, $response )
 	{
-		
 		// Discard empty solution submissions
 		if ( $response == null || strlen( $response ) == 0 )
 		{
@@ -125,7 +122,7 @@ class ReCaptcha
 		$getResponse       = $this->_submitHttpGet(
 			self::$_siteVerifyUrl,
 			array(
-				'secret'   => $this->_secret,
+				'secret'   => $secret,
 				'remoteip' => $remoteIp,
 				'v'        => self::$_version,
 				'response' => $response
