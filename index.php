@@ -1,4 +1,9 @@
-<?php require_once "config.php"; ?>
+<?php require_once "config.php"; 
+
+if (!isset($_COOKIE["q"])) {
+	setcookie('q', generateRandomString(), time() + 86400, '/');
+}
+?>
 <!DOCTYPE html>
 <html>
 
@@ -27,9 +32,6 @@
 
 
 
-	if (!isset($_COOKIE["q"])) {
-		setcookie('q', generateRandomString(), time() + 86400, '/');
-	}
 	if (isset($_POST['submit'])) {
 		$www = $_POST['www'];
 		$resp = false;
